@@ -1,0 +1,52 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 1.0 (409.100.15)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Globe", "Globe_marker"]
+    def "Globe_marker" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -0.06981317, 0)
+        }
+        references = @exercises-240419-globe-marker.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.99939084, 0, -0.034899496, 0)
+        float3 xformOp:scale = (0.15, 0.15, 0.15)
+        float3 xformOp:translate = (0.53, 1.12, -1.8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Globe" (
+        active = true
+        references = @exercises-240419-globe.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.15, 0.15, 0.15)
+        float3 xformOp:translate = (0.53, 1.12, -1.8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "ImageBasedLightReceiver"
+        {
+            uniform token info:id = "RealityKit.ImageBasedLightReceiver"
+        }
+    }
+
+    def RealityKitComponent "ImageBasedLight"
+    {
+        bool enableBlend = 0
+        asset ibl = @Lights/ImageBasedLight.exr@
+        uniform token info:id = "RealityKit.ImageBasedLight"
+        float intensityExponent = 2
+        bool isGlobalIBL = 0
+    }
+}
+
