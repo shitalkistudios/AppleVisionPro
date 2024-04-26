@@ -1,0 +1,799 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+reorder rootPrims = ["Root", "GridMaterial"]
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Goku_adult", "Goku_adult", "Goku_kidnimbus", "Road_nocurvekai", "Road_curveup", "Road_curveleft", "Road_curveright", "Road_nocurve", "Road_nocurve_1", "Road_nocurve_2", "Road_nocurve_3", "Road_curveright_1", "Road_curveleft_1", "GridMaterial"]
+    def "GridMaterial" (
+        active = true
+        references = @Materials/GridMaterial.usda@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Road_nocurvekai" (
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+        references = @exercises-240417-road-nocurve-w-kai.usdz@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.32, 0.32, 0.32)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (5.2695003, 2.9450707, 17.067358)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0.21670818, -0.48899132, -6.9369845)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_curveup" (
+        references = @exercises-240417-road-curveup.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.8737984, 2.597691, 8.886959)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0.053194582, 0.22512347, -3.6718495)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_curveleft" (
+        references = @exercises-240417-road-curveleft.usdz@
+    )
+    {
+        reorder nameChildren = ["Materials", "Geom"]
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0.02, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (3.6345, 1.3282385, 9.124676)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.39426374, -0.37797797, -3.7882082)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody" (
+            active = false
+        )
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_curveright" (
+        references = @exercises-240417-road-curveright.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0.02, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (3.754241, 1.3282385, 9.071568)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0.43489796, -0.3971169, -3.7621558)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_nocurve" (
+        references = @exercises-240417-road-nocurve.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.8650796, 1.3360138, 9.279694)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0, -0.3766, -3.7717078)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_nocurve_1" (
+        references = @exercises-240417-road-nocurve.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Clay_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_1/Materials/Clay_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_1/Materials/Clay_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_1/Materials/Clay_mat/uvReader_st.outputs:result>
+                }
+            }
+
+            over "Brick_diag_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_1/Materials/Brick_diag_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_1/Materials/Brick_diag_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_1/Materials/Brick_diag_mat/uvReader_st.outputs:result>
+                }
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.8650796, 1.3360138, 9.279694)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0, -0.3766, -3.7717078)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_nocurve_2" (
+        references = @exercises-240417-road-nocurve.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Clay_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_2/Materials/Clay_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_2/Materials/Clay_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_2/Materials/Clay_mat/uvReader_st.outputs:result>
+                }
+            }
+
+            over "Brick_diag_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_2/Materials/Brick_diag_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_2/Materials/Brick_diag_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_2/Materials/Brick_diag_mat/uvReader_st.outputs:result>
+                }
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.8650796, 1.3360138, 9.279694)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0, -0.3766, -3.7717078)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_nocurve_3" (
+        references = @exercises-240417-road-nocurve.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Clay_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_3/Materials/Clay_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_3/Materials/Clay_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_3/Materials/Clay_mat/uvReader_st.outputs:result>
+                }
+            }
+
+            over "Brick_diag_mat"
+            {
+                token outputs:surface.connect = </Root/Road_nocurve_3/Materials/Brick_diag_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_nocurve_3/Materials/Brick_diag_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_nocurve_3/Materials/Brick_diag_mat/uvReader_st.outputs:result>
+                }
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (2.8650796, 1.3360138, 9.279694)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0, -0.3766, -3.7717078)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_curveright_1" (
+        references = @exercises-240417-road-curveright.usdz@
+    )
+    {
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0.02, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Clay_mat"
+            {
+                token outputs:surface.connect = </Root/Road_curveright_1/Materials/Clay_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_curveright_1/Materials/Clay_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_curveright_1/Materials/Clay_mat/uvReader_st.outputs:result>
+                }
+            }
+
+            over "Brick_diag_mat"
+            {
+                token outputs:surface.connect = </Root/Road_curveright_1/Materials/Brick_diag_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_curveright_1/Materials/Brick_diag_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_curveright_1/Materials/Brick_diag_mat/uvReader_st.outputs:result>
+                }
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (3.754241, 1.3282385, 9.071568)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0.43489796, -0.3971169, -3.7621558)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Road_curveleft_1" (
+        references = @exercises-240417-road-curveleft.usdz@
+    )
+    {
+        reorder nameChildren = ["Materials", "Geom"]
+        float3 xformOp:scale = (0.56, 0.56, 0.56)
+        float3 xformOp:translate = (0.02, -0.3, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Materials"
+        {
+            over "Clay_mat"
+            {
+                token outputs:surface.connect = </Root/Road_curveleft_1/Materials/Clay_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_curveleft_1/Materials/Clay_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_curveleft_1/Materials/Clay_mat/uvReader_st.outputs:result>
+                }
+            }
+
+            over "Brick_diag_mat"
+            {
+                token outputs:surface.connect = </Root/Road_curveleft_1/Materials/Brick_diag_mat/surfaceShader.outputs:surface>
+
+                over "surfaceShader"
+                {
+                    color3f inputs:diffuseColor.connect = </Root/Road_curveleft_1/Materials/Brick_diag_mat/diffuseColor_texture.outputs:rgb>
+                }
+
+                over "diffuseColor_texture"
+                {
+                    float2 inputs:st.connect = </Root/Road_curveleft_1/Materials/Brick_diag_mat/uvReader_st.outputs:result>
+                }
+            }
+        }
+
+        over "Geom"
+        {
+            over "Empty_CurveL"
+            {
+                over "Bricks_main_curveL"
+                {
+                }
+
+                over "Bricks_side_curveL"
+                {
+                }
+            }
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (3.6345, 1.3282385, 9.124676)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (-0.39426374, -0.37797797, -3.7882082)
+                }
+            }
+        }
+
+        def RealityKitComponent "RigidBody"
+        {
+            bool gravityEnabled = 0
+            uniform token info:id = "RealityKit.RigidBody"
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationY = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+    }
+
+    def "Goku_kidnimbus" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 3.1415927, 0)
+        }
+        references = @exercises-240418-dragonball-kid-goku-nimbus.usdz@
+    )
+    {
+        quatf xformOp:orient = (-4.371139e-8, 0, 1, 0)
+        float3 xformOp:scale = (0.14, 0.14, 0.14)
+        float3 xformOp:translate = (0, -0.13, -1.2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Goku_adult" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 2.9670594, 0)
+        }
+        references = @exercises-240419-dragonball-goku-running1.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.087155804, 0, 0.9961947, 0)
+        float3 xformOp:scale = (0.005, 0.005, 0.005)
+        float3 xformOp:translate = (0.111999996, -0.24, -1.2)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Object_2_001" (
+            active = false
+        )
+        {
+        }
+
+        def RealityKitComponent "RigidBody" (
+            active = false
+        )
+        {
+            uniform token info:id = "RealityKit.RigidBody"
+            bool isCCDEnabled = 0
+            bool lockRotationX = 1
+            bool lockRotationY = 1
+            bool lockRotationZ = 1
+            bool lockTranslationX = 1
+            bool lockTranslationZ = 1
+
+            def RealityKitStruct "massFrame"
+            {
+                def RealityKitStruct "m_pose"
+                {
+                }
+            }
+
+            def RealityKitStruct "material"
+            {
+            }
+        }
+
+        def RealityKitComponent "Collider" (
+            active = false
+        )
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (45.998474, 58.66414, 26.103317)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                    float3 position = (0.6852102, 29.465576, -1.6422276)
+                }
+            }
+        }
+    }
+}
+
